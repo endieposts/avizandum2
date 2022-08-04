@@ -12,7 +12,7 @@ public class Domain {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	private String domainName;
+	private String name;
 	
 	private long ownerId;
 
@@ -24,12 +24,12 @@ public class Domain {
 		this.id = id;
 	}
 
-	public String getDomainName() {
-		return domainName;
+	public String getName() {
+		return name;
 	}
 
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public long getOwnerId() {
@@ -43,7 +43,7 @@ public class Domain {
 	public Domain(long id, String domainName, long ownerId) {
 		super();
 		this.id = id;
-		this.domainName = domainName;
+		this.name = domainName;
 		this.ownerId = ownerId;
 	}
 }
