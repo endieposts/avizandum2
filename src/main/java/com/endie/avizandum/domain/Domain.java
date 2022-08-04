@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Domain {
@@ -21,7 +22,8 @@ public class Domain {
 	
 	private long ownerId;
 	
-	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="domain", fetch = FetchType.LAZY)
+	@Transient
+	@OneToMany(mappedBy="domain_id", fetch = FetchType.LAZY)
 	private List<District> districts;
 
 	public List<District> getDistricts() {
