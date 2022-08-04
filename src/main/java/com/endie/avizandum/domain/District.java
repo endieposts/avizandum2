@@ -1,9 +1,12 @@
 package com.endie.avizandum.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class District {
@@ -15,6 +18,18 @@ public class District {
 	private long terrainId;
 	
 	private String name;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="domain")
+	private Domain domain; 
+
+	public Domain getDomain() {
+		return domain;
+	}
+
+	public void setDomain(Domain domain) {
+		this.domain = domain;
+	}
 
 	public long getId() {
 		return id;
@@ -40,10 +55,11 @@ public class District {
 		this.name = name;
 	}
 
-	public District(long id, long terrainId, String name) {
+	public District(long id, long terrainId, String name, Domain domain) {
 		super();
 		this.id = id;
 		this.terrainId = terrainId;
 		this.name = name;
+		this.domain = domain;
 	}
 }
