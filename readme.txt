@@ -1,6 +1,20 @@
-To run, this will need the db username, password etc stored in vault
+To run, this will need the db username, password etc stored in vault. Start up a local server in dev mode
 
 e.g.
-vault server -dev
-vault write secret/avizandum dbusername=value1 dbpassword=value2 etc
-vault read secret/avizandum
+
+set VAULT_ADDR=http://127.0.0.1:8200
+
+c:\Utils\Vault\vault server --dev --dev-root-token-id="00000000-0000-0000-00000000000"
+
+PAUSE
+
+
+
+And add a script to store secrets, such as:
+
+set VAULT_ADDR=http://127.0.0.1:8200
+
+vault kv put secret/avizandum2 dbusername=tester 
+vault kv put secret/avizandum2 dbpassword=localtest
+
+Change the usernme and password values to the actual application ones.
