@@ -14,7 +14,7 @@ And add a script to store secrets, such as:
 
 set VAULT_ADDR=http://127.0.0.1:8200
 
-vault kv put secret/avizandum2 dbusername=tester 
-vault kv put secret/avizandum2 dbpassword=localtest
+vault kv put secret/avizandum2 dbusername=insertusernamehere 
+vault kv put secret/avizandum2 dbpassword=insertpasswordhere
 
-Change the usernme and password values to the actual application ones.
+Change the username and password values to the actual application ones.
