@@ -26,12 +26,31 @@ spring:
   jpa:
     show-sql: true
     generate-ddl: true
-    hibernate.ddl-auto: create
+    hibernate:
+      ddl-auto: create
     defer-datasource-initialization: true
   sql:
     init:
       mode: always
 
-  
-  
+---
+
+spring:
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:h2:mem:avizandum2
+    username: sa
+    password: 
+    driverClassName: org.h2.Driver
+    
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
   
