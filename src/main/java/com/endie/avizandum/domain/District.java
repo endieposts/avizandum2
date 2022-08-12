@@ -81,4 +81,8 @@ public class District {
 		this.name = name;
 		this.domain = domain;
 	}
+	
+    public District() {
+
+    }
 }

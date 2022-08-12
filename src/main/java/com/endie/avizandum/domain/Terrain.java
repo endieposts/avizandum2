@@ -36,5 +36,7 @@ public class Terrain {
 		Name = name;
 	}
 	
-	
+	public Terrain () {
+		
+	}
 }
