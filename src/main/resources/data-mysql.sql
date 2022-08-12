@@ -4,6 +4,7 @@ insert into TERRAIN (ID, NAME) values (3, 'Plains');
 insert into TERRAIN (ID, NAME) values (4, 'Desert');
 insert into TERRAIN (ID, NAME) values (5, 'Loch');
 insert into TERRAIN (ID, NAME) values (6, 'Ocean');
+insert into TERRAIN (ID, NAME) values (7, 'Tundra');
 
 insert into DISTRICT (ID, DOMAIN_ID, TERRAIN_ID , NAME) values (1, 2, 1, 'Bogtown');
 insert into DISTRICT (ID, DOMAIN_ID, TERRAIN_ID , NAME) values (2, 1, 2, 'Tabula Rasa');
