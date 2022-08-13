@@ -22,7 +22,6 @@ public class Domain {
 	private long ownerId;
 	
 	@Transient
-	@OneToMany(mappedBy="domain_id", fetch = FetchType.LAZY)
 	private List<District> districts;
 
 	public List<District> getDistricts() {

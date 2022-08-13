@@ -1,8 +1,8 @@
 package com.endie.avizandum.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DomainRepository extends CrudRepository<Domain, Long>{
+public interface DomainRepository extends JpaRepository<Domain, Long>{
 
 
 }

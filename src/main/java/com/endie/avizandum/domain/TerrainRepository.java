@@ -1,7 +1,7 @@
 package com.endie.avizandum.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TerrainRepository extends CrudRepository<Terrain, Long>{
+public interface TerrainRepository extends JpaRepository<Terrain, Long>{
 
 }
