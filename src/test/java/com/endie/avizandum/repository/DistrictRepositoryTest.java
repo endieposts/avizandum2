@@ -36,13 +36,6 @@ public class DistrictRepositoryTest {
     @Test
     public void should_store_a_district() {
     	
-    	//Terrain terrain = new Terrain(1L, "Bog");
-    	//District district = new District(1L, 1L, "Test district name", 1L);
-    	//List<District> districts = new ArrayList<>();
-    	//districts.add(district);
-    	//Domain domain = new Domain(1L, "Test Domain", 1L, districts);
-    	//district.setDomain(domain);
-    	
         District district = districtRepository.save(new District(1L, 1L, "Test district name"));
         
 
@@ -56,9 +49,9 @@ public class DistrictRepositoryTest {
     public void should_find_all_districts() {
  
 
-        District district1 = districtRepository.save(new District(2L, 1L, "Test district name"));
-        District district2 = districtRepository.save(new District(3L, 1L, "Test district name 2"));
-        District district3 = districtRepository.save(new District(4L, 1L, "Test district name 3"));
+        District district1 = districtRepository.save(new District(1L, "Test district name"));
+        District district2 = districtRepository.save(new District(1L, "Test district name 2"));
+        District district3 = districtRepository.save(new District(1L, "Test district name 3"));
 
         Iterable<District> districts = districtRepository.findAll();
 
@@ -78,5 +71,41 @@ public class DistrictRepositoryTest {
 
         assertThat(foundDistrict).isEqualTo(district2);
 
+    }
+    
+    @Test
+    public void should_update_district_by_id() {
+    	District district1 = new District(1L, "F Test district name 6");
+    	districtRepository.save(district1);
+    	
+    	District district2 = new District(2L, "G Test district name 7");
+    	districtRepository.save(district2);
+
+        District updatedDistrict = new District(3L, "H updated District 7 name");
+
+        District district = districtRepository.findById(district2.getId()).get();
+        district.setName(updatedDistrict.getName());
+        district.setTerrainId(updatedDistrict.getTerrainId());
+        districtRepository.save(district);
+
+        District checkDistrict = districtRepository.findById(district2.getId()).get();
+
+        assertThat(checkDistrict.getId()).isEqualTo(district2.getId());
+        assertThat(checkDistrict.getName()).isEqualTo(updatedDistrict.getName());
+        assertThat(checkDistrict.getTerrainId()).isEqualTo(updatedDistrict.getTerrainId());
+
+    }
+    
+    @Test
+    public void should_delete_all_districts() {
+    	District district1 = new District(1L, "Test district name 8");
+    	districtRepository.save(district1);
+    	
+    	District district2 = new District(2L, "Test district name 9");
+    	districtRepository.save(district2);
+
+        districtRepository.deleteAll();
+
+        assertThat(districtRepository.findAll()).isEmpty();
     }
 }
