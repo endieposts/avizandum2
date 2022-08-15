@@ -62,4 +62,10 @@ public class Domain {
 		this.districts = districts;
 	}
 
+	public Domain( String name, long ownerId, List<District> districts) {
+		super();
+		this.name = name;
+		this.ownerId = ownerId;
+		this.districts = districts;
+	}
 }

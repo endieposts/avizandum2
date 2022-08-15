@@ -12,7 +12,7 @@ public class Terrain {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	private String Name;
+	private String name;
 
 	public long getId() {
 		return id;
@@ -23,20 +23,24 @@ public class Terrain {
 	}
 	
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public Terrain(long id, String name) {
 		super();
 		this.id = id;
-		Name = name;
+		this.name = name;
 	}
 	
 	public Terrain () {
 		
+	}
+
+	public Terrain(String name) {
+		this.name = name;
 	}
 }
