@@ -2,7 +2,6 @@ package com.endie.avizandum.controller;
 
 import java.util.Optional;
 
-import com.endie.avizandum.repository.TerrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +13,8 @@ import com.endie.avizandum.repository.DistrictRepository;
 @RestController
 public class DistrictController {
 
-	@Autowired
-	private DistrictRepository repository;
+	final
+	DistrictRepository repository;
 
 	public DistrictController(DistrictRepository repository) {
 		this.repository = repository;

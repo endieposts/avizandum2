@@ -19,10 +19,13 @@ public class LoginController {
 	@Autowired
 	private JwtService jwtService;
 	
-	@Autowired
-	AuthenticationManager authenticationManager;
-	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	private final AuthenticationManager authenticationManager;
+
+    public LoginController(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
+
+    @RequestMapping(value="/login", method=RequestMethod.POST)
 	public ResponseEntity<?> getToken(@RequestBody AccountCredentials credentials) {
 		// Generate token and send it in the response Authorisation header
 		

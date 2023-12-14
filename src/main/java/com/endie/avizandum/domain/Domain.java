@@ -22,6 +22,10 @@ public class Domain {
 	@Transient
 	private List<District> districts;
 
+	public Domain() {
+		
+	}
+
 	public List<District> getDistricts() {
 		return districts;
 	}
