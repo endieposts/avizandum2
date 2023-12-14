@@ -13,13 +13,9 @@ import com.endie.avizandum.repository.DistrictRepository;
 @RestController
 public class DistrictController {
 
-	final
+	@Autowired
 	DistrictRepository repository;
-
-	public DistrictController(DistrictRepository repository) {
-		this.repository = repository;
-	}
-
+	
 	@RequestMapping("/districts")
 	public Iterable<District> getDistricts(){
 		return repository.findAll();
