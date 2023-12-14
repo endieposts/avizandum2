@@ -1,6 +1,14 @@
 package com.endie.avizandum.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "player")
 public class Player {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
 
     public long getId() {
         return id;
@@ -26,7 +34,6 @@ public class Player {
         this.appUserId = appUserId;
     }
 
-    private long id;
     private String name;
     private long appUserId;
 
