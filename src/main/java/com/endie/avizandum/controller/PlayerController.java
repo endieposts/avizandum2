@@ -1,6 +1,5 @@
 package com.endie.avizandum.controller;
 
-import com.endie.avizandum.domain.District;
 import com.endie.avizandum.domain.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
