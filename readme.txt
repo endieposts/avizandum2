@@ -18,3 +18,5 @@ vault kv put secret/avizandum2 dbusername=insertusernamehere
 vault kv put secret/avizandum2 dbpassword=insertpasswordhere
 
 Change the username and password values to the actual application ones.
+
+For running tests in dev: add username and password variables to match values in the user db
