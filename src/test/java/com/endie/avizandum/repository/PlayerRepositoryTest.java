@@ -22,4 +22,14 @@ public class PlayerRepositoryTest {
         assertThat(players).isEmpty();
     }
 
+    @Test
+    public void should_store_a_player() {
+
+        Player player = playerRepository.save(new Player("Test player name", 1L, 1L));
+
+
+        assertThat(player).hasFieldOrPropertyWithValue("name", "Test player name");
+
+        playerRepository.deleteAll();
+    }
 }
