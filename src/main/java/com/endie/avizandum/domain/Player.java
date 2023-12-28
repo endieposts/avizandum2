@@ -9,6 +9,19 @@ public class Player {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
+    private String name;
+    private long appUserId;
+
+    public Player(String name, long id, long appUserId) {
+        super();
+        this.name = name;
+        this.id = id;
+        this.appUserId = appUserId;
+    }
+
+    public Player() {
+
+    }
 
     public long getId() {
         return id;
@@ -33,8 +46,5 @@ public class Player {
     public void setAppUserId(long appUserId) {
         this.appUserId = appUserId;
     }
-
-    private String name;
-    private long appUserId;
 
 }

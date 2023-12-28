@@ -45,4 +45,15 @@ public class PlayerRepositoryTest {
 
         assertThat(players).hasSize(3).contains(player, player2, player3);
     }
+
+    @Test
+    public void should_find_player_by_id() {
+
+        Player player = playerRepository.save(new Player("Test player name 4", 1L, 1L));
+        Player player2 = playerRepository.save(new Player("Test player name 5", 1L, 1L));
+
+        Player foundPlayer = playerRepository.findById(player2.getId()).get();
+
+        assertThat(foundPlayer).isEqualTo(player2);
+    }
 }
