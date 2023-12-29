@@ -23,7 +23,7 @@ public class DomainRepositoryTest {
     }
     
     @Test
-    public void should_store_a_district() {
+    public void should_store_a_domain() {
     	
         Domain domain = domainRepository.save(new Domain("Test domain name", 1L, null));
         
@@ -34,7 +34,7 @@ public class DomainRepositoryTest {
     }
     
     @Test
-    public void should_find_all_districts() {
+    public void should_find_all_domains() {
  
 
     	Domain domain = domainRepository.save(new Domain("Test domain name", 1L, null));
@@ -47,7 +47,7 @@ public class DomainRepositoryTest {
     }
 
     @Test
-    public void should_find_district_by_id() {
+    public void should_find_domain_by_id() {
 
     	Domain domain = domainRepository.save(new Domain("Test domain name 4", 1L, null));
     	Domain domain2 = domainRepository.save(new Domain("Test domain name 5", 1L, null));
@@ -58,7 +58,7 @@ public class DomainRepositoryTest {
     }
     
     @Test
-    public void should_update_district_by_id() {
+    public void should_update_domain_by_id() {
     	Domain domain = domainRepository.save(new Domain("Test domain name 6", 1L, null));
     	Domain domain2 = domainRepository.save(new Domain("Test domain name 7", 1L, null));
 
@@ -75,7 +75,7 @@ public class DomainRepositoryTest {
     }
     
     @Test
-    public void should_delete_all_districts() {
+    public void should_delete_all_domains() {
     	Domain domain = domainRepository.save(new Domain("Test domain name 8", 1L, null));
     	Domain domain2 = domainRepository.save(new Domain("Test domain name 9", 1L, null));
 
