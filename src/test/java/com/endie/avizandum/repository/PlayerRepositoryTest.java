@@ -56,4 +56,21 @@ public class PlayerRepositoryTest {
 
         assertThat(foundPlayer).isEqualTo(player2);
     }
+
+    @Test
+    public void should_update_player_by_id() {
+        Player player = playerRepository.save(new Player("Test player name 6", 1L, 1L));
+        Player player2 = playerRepository.save(new Player("Test player name 7", 1L, 1L));
+
+        Player updatedPlayer = new Player("Updated Test player name 7", 1L, 1L);
+
+        Player foundPlayer = playerRepository.findById(player2.getId()).get();
+        foundPlayer.setName(updatedPlayer.getName());
+        playerRepository.save(foundPlayer);
+
+        Player checkplayer = playerRepository.findById(player2.getId()).get();
+
+        assertThat(checkplayer.getId()).isEqualTo(player2.getId());
+        assertThat(checkplayer.getName()).isEqualTo(updatedPlayer.getName());
+    }
 }
