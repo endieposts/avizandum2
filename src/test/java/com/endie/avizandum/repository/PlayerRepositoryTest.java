@@ -73,4 +73,14 @@ public class PlayerRepositoryTest {
         assertThat(checkplayer.getId()).isEqualTo(player2.getId());
         assertThat(checkplayer.getName()).isEqualTo(updatedPlayer.getName());
     }
+
+    @Test
+    public void should_delete_all_players() {
+        Player player = playerRepository.save(new Player("Test player name 8", 1L, 1L));
+        Player player2 = playerRepository.save(new Player("Test player name 9", 1L, 1L));
+
+        playerRepository.deleteAll();
+
+        assertThat(playerRepository.findAll()).isEmpty();
+    }
 }
