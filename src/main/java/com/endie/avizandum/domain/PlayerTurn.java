@@ -9,6 +9,15 @@ public class PlayerTurn {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
+    public PlayerTurn(long playerId, long turnNumber) {
+        this.playerId = playerId;
+        this.turnNumber = turnNumber;
+    }
+
+    public PlayerTurn() {
+
+    }
+
     public long getId() {
         return id;
     }

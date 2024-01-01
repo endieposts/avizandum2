@@ -1,5 +1,6 @@
 package com.endie.avizandum.repository;
 
+import com.endie.avizandum.domain.Player;
 import com.endie.avizandum.domain.PlayerTurn;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,16 @@ public class PlayerTurnRepositoryTest {
         Iterable<PlayerTurn> playerTurns = playerTurnRepository.findAll();
 
         assertThat(playerTurns).isEmpty();
+    }
+
+    @Test
+    public void should_store_a_player_turn() {
+
+        PlayerTurn playerTurn = playerTurnRepository.save(new PlayerTurn( 1L, 1L));
+
+
+        assertThat(playerTurn).hasFieldOrPropertyWithValue("playerId", 1L);
+
+        playerTurnRepository.deleteAll();
     }
 }
