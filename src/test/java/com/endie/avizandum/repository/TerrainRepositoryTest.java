@@ -24,9 +24,7 @@ public class TerrainRepositoryTest {
     
     @Test
     public void should_store_a_district() {
-    	
         Terrain terrain = terrainRepository.save(new Terrain("Test terrain name"));
-        
 
         assertThat(terrain).hasFieldOrPropertyWithValue("name", "Test terrain name");
         
@@ -35,8 +33,6 @@ public class TerrainRepositoryTest {
     
     @Test
     public void should_find_all_districts() {
- 
-
     	Terrain terrain = terrainRepository.save(new Terrain("Test terrain name"));
     	Terrain terrain2 = terrainRepository.save(new Terrain("Test terrain name 2"));
     	Terrain terrain3 = terrainRepository.save(new Terrain("Test terrain name 3")); 
@@ -48,7 +44,6 @@ public class TerrainRepositoryTest {
 
     @Test
     public void should_find_district_by_id() {
-
     	Terrain terrain = terrainRepository.save(new Terrain("Test terrain name 4"));
     	Terrain terrain2 = terrainRepository.save(new Terrain("Test terrain name 5"));
 

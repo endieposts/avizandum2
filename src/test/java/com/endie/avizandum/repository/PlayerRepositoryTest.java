@@ -24,9 +24,7 @@ public class PlayerRepositoryTest {
 
     @Test
     public void should_store_a_player() {
-
         Player player = playerRepository.save(new Player("Test player name", 1L, 1L));
-
 
         assertThat(player).hasFieldOrPropertyWithValue("name", "Test player name");
 
@@ -35,8 +33,6 @@ public class PlayerRepositoryTest {
 
     @Test
     public void should_find_all_players() {
-
-
         Player player = playerRepository.save(new Player("Test player name", 1L, 1L));
         Player player2 = playerRepository.save(new Player("Test player name 2", 1L, 1L));
         Player player3 = playerRepository.save(new Player("Test player name 3", 1L, 1L));
@@ -48,7 +44,6 @@ public class PlayerRepositoryTest {
 
     @Test
     public void should_find_player_by_id() {
-
         Player player = playerRepository.save(new Player("Test player name 4", 1L, 1L));
         Player player2 = playerRepository.save(new Player("Test player name 5", 1L, 1L));
 

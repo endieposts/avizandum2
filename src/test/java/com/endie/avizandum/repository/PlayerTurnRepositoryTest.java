@@ -24,9 +24,7 @@ public class PlayerTurnRepositoryTest {
 
     @Test
     public void should_store_a_player_turn() {
-
         PlayerTurn playerTurn = playerTurnRepository.save(new PlayerTurn( 1L, 1L));
-
 
         assertThat(playerTurn).hasFieldOrPropertyWithValue("playerId", 1L);
 

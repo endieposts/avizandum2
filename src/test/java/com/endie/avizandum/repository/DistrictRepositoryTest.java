@@ -25,9 +25,7 @@ public class DistrictRepositoryTest {
     
     @Test
     public void should_store_a_district() {
-    	
         District district = districtRepository.save(new District(1L, 1L, "Test district name"));
-        
 
         assertThat(district).hasFieldOrPropertyWithValue("name", "Test district name");
         assertThat(district).hasFieldOrPropertyWithValue("terrainId", 1L);
@@ -37,8 +35,6 @@ public class DistrictRepositoryTest {
     
     @Test
     public void should_find_all_districts() {
- 
-
         District district1 = districtRepository.save(new District(1L, "Test district name"));
         District district2 = districtRepository.save(new District(1L, "Test district name 2"));
         District district3 = districtRepository.save(new District(1L, "Test district name 3"));
@@ -50,7 +46,6 @@ public class DistrictRepositoryTest {
     
     @Test
     public void should_find_district_by_id() {
-
     	District district1 = new District(1L, "Test district name 4");
     	districtRepository.save(district1);
     	
@@ -83,7 +78,6 @@ public class DistrictRepositoryTest {
         assertThat(checkDistrict.getId()).isEqualTo(district2.getId());
         assertThat(checkDistrict.getName()).isEqualTo(updatedDistrict.getName());
         assertThat(checkDistrict.getTerrainId()).isEqualTo(updatedDistrict.getTerrainId());
-
     }
     
     @Test

@@ -24,9 +24,7 @@ public class AppUserRepositoryTest {
     
     @Test
     public void should_store_a_user() {
-    	
         AppUser AppUser = appUserRepository.save(new AppUser("User 1", "password", "default"));
-        
 
         assertThat(AppUser).hasFieldOrPropertyWithValue("userName", "User 1");
         
@@ -35,8 +33,6 @@ public class AppUserRepositoryTest {
     
     @Test
     public void should_find_all_users() {
- 
-
     	AppUser AppUser = appUserRepository.save(new AppUser("User 2", "password", "default"));
     	AppUser AppUser2 = appUserRepository.save(new AppUser("User 3", "password", "default"));
     	AppUser AppUser3 = appUserRepository.save(new AppUser("User 4", "password", "default")); 
@@ -48,7 +44,6 @@ public class AppUserRepositoryTest {
 
     @Test
     public void should_find_user_by_id() {
-
     	AppUser AppUser = appUserRepository.save(new AppUser("User 5", "password", "default"));
     	AppUser AppUser2 = appUserRepository.save(new AppUser("User 6", "password", "default"));
 
