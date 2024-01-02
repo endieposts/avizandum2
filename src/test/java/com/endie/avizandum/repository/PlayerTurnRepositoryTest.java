@@ -30,4 +30,15 @@ public class PlayerTurnRepositoryTest {
 
         playerTurnRepository.deleteAll();
     }
+
+    @Test
+    public void should_find_all_player_turns() {
+        PlayerTurn playerTurn = playerTurnRepository.save(new PlayerTurn( 1L, 1L));
+        PlayerTurn playerTurn2 = playerTurnRepository.save(new PlayerTurn( 2L, 1L));
+        PlayerTurn playerTurn3 = playerTurnRepository.save(new PlayerTurn( 3L, 1L));
+
+        Iterable<PlayerTurn> playerTurns = playerTurnRepository.findAll();
+
+        assertThat(playerTurns).hasSize(3).contains(playerTurn, playerTurn2, playerTurn3);
+    }
 }
