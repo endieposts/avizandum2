@@ -41,4 +41,14 @@ public class PlayerTurnRepositoryTest {
 
         assertThat(playerTurns).hasSize(3).contains(playerTurn, playerTurn2, playerTurn3);
     }
+
+    @Test
+    public void should_find_player_turn_by_id() {
+        PlayerTurn playerTurn = playerTurnRepository.save(new PlayerTurn( 2L, 2L));
+        PlayerTurn playerTurn2 = playerTurnRepository.save(new PlayerTurn( 2L, 3L));
+
+        PlayerTurn foundPlayerTurn = playerTurnRepository.findById(playerTurn2.getId()).get();
+
+        assertThat(foundPlayerTurn).isEqualTo(playerTurn2);
+    }
 }
