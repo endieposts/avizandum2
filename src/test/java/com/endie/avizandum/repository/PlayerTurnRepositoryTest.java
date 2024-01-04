@@ -51,4 +51,21 @@ public class PlayerTurnRepositoryTest {
 
         assertThat(foundPlayerTurn).isEqualTo(playerTurn2);
     }
+
+    @Test
+    public void should_update_player_by_id() {
+        PlayerTurn playerTurn = playerTurnRepository.save(new PlayerTurn( 3L, 4L));
+        PlayerTurn playerTurn2 = playerTurnRepository.save(new PlayerTurn( 3L, 5L));
+
+        PlayerTurn updatedPlayerTurn = new PlayerTurn( 3L, 6L);
+
+        PlayerTurn foundPlayer = playerTurnRepository.findById(playerTurn2.getId()).get();
+        foundPlayer.setTurnNumber(updatedPlayerTurn.getTurnNumber());
+        playerTurnRepository.save(foundPlayer);
+
+        PlayerTurn checkPlayer = playerTurnRepository.findById(playerTurn2.getId()).get();
+
+        assertThat(checkPlayer.getId()).isEqualTo(playerTurn2.getId());
+        assertThat(checkPlayer.getTurnNumber()).isEqualTo(updatedPlayerTurn.getTurnNumber());
+    }
 }
