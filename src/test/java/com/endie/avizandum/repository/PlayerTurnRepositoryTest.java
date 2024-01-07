@@ -53,7 +53,7 @@ public class PlayerTurnRepositoryTest {
     }
 
     @Test
-    public void should_update_player_by_id() {
+    public void should_update_player_turn_by_id() {
         PlayerTurn playerTurn = playerTurnRepository.save(new PlayerTurn( 3L, 4L));
         PlayerTurn playerTurn2 = playerTurnRepository.save(new PlayerTurn( 3L, 5L));
 
@@ -67,5 +67,15 @@ public class PlayerTurnRepositoryTest {
 
         assertThat(checkPlayer.getId()).isEqualTo(playerTurn2.getId());
         assertThat(checkPlayer.getTurnNumber()).isEqualTo(updatedPlayerTurn.getTurnNumber());
+    }
+
+    @Test
+    public void should_delete_all_player_turns() {
+        playerTurnRepository.save(new PlayerTurn( 4L, 7L));
+        playerTurnRepository.save(new PlayerTurn( 4L, 8L));
+
+        playerTurnRepository.deleteAll();
+
+        assertThat(playerTurnRepository.findAll()).isEmpty();
     }
 }
