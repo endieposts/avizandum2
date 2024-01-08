@@ -15,4 +15,9 @@ public class PlayerTurnController {
     public Iterable<com.endie.avizandum.domain.PlayerTurn> getPlayerTurns() {
         return repository.findAll();
     }
+
+    @RequestMapping("/playerTurn/{id}")
+    public com.endie.avizandum.domain.PlayerTurn getPlayerTurnById(long id) {
+        return repository.findById(id).get();
+    }
 }
