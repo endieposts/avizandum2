@@ -16,4 +16,9 @@ public class TurnComponentController {
         return repository.findAll();
     }
 
+    @RequestMapping("/turnComponents/{id}")
+    public com.endie.avizandum.domain.TurnComponent getTurnComponentById(long id) {
+        return repository.findById(id).get();
+    }
+
 }
