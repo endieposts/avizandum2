@@ -20,4 +20,13 @@ public class TurnComponentRepositoryTest {
 
         assertThat(turnComponents).isEmpty();
     }
+
+    @Test
+    public void should_store_a_turn_component() {
+        TurnComponent turnComponent = turnComponentRepository.save(new TurnComponent(1L, 1L, 1L, "Test turn component action"));
+
+        assertThat(turnComponent).hasFieldOrPropertyWithValue("turnAction", "Test turn component action");
+
+        turnComponentRepository.deleteAll();
+    }
 }
