@@ -29,4 +29,15 @@ public class TurnComponentRepositoryTest {
 
         turnComponentRepository.deleteAll();
     }
+
+    @Test
+    public void should_find_all_turn_components() {
+        TurnComponent turnComponent = turnComponentRepository.save(new TurnComponent(1L, 1L, 1L, "Test turn component action"));
+        TurnComponent turnComponent2 = turnComponentRepository.save(new TurnComponent(2L, 1L, 2L, "Test turn component action 2"));
+        TurnComponent turnComponent3 = turnComponentRepository.save(new TurnComponent(3L, 2L, 3L, "Test turn component action 3"));
+
+        Iterable<TurnComponent> turnComponents = turnComponentRepository.findAll();
+
+        assertThat(turnComponents).hasSize(3).contains(turnComponent, turnComponent2, turnComponent3);
+    }
 }
