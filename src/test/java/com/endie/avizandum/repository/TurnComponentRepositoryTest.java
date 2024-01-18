@@ -40,4 +40,14 @@ public class TurnComponentRepositoryTest {
 
         assertThat(turnComponents).hasSize(3).contains(turnComponent, turnComponent2, turnComponent3);
     }
+
+    @Test
+    public void should_find_turn_component_by_id() {
+        TurnComponent turnComponent = turnComponentRepository.save(new TurnComponent(4L, 1L, 4L, "Test turn component action 4"));
+        TurnComponent turnComponent2 = turnComponentRepository.save(new TurnComponent(5L, 3L, 5L, "Test turn component action 5"));
+
+        TurnComponent foundTurnComponent = turnComponentRepository.findById(turnComponent2.getId()).get();
+
+        assertThat(foundTurnComponent).isEqualTo(turnComponent2);
+    }
 }
