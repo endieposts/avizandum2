@@ -50,4 +50,17 @@ public class TurnComponentRepositoryTest {
 
         assertThat(foundTurnComponent).isEqualTo(turnComponent2);
     }
+
+    @Test
+    public void should_update_turn_component_by_id() {
+        TurnComponent turnComponent = turnComponentRepository.save(new TurnComponent(6L, 1L, 6L, "Test turn component action 6"));
+        TurnComponent turnComponent2 = turnComponentRepository.save(new TurnComponent(7L, 3L, 7L, "Test turn component action 7"));
+
+        TurnComponent updatedTurnComponent = new TurnComponent(7L, 3L, 7L, "Updated Test turn component action 7");
+
+        TurnComponent turnComponent3 = turnComponentRepository.save(updatedTurnComponent);
+        TurnComponent foundTurnComponent = turnComponentRepository.findById(turnComponent3.getId()).get();
+
+        assertThat(foundTurnComponent.getTurnAction()).isEqualTo(updatedTurnComponent.getTurnAction());
+    }
 }
