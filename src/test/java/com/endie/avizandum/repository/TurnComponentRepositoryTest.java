@@ -63,4 +63,16 @@ public class TurnComponentRepositoryTest {
 
         assertThat(foundTurnComponent.getTurnAction()).isEqualTo(updatedTurnComponent.getTurnAction());
     }
+
+    @Test
+    public void should_delete_turn_component_by_id() {
+        TurnComponent turnComponent = turnComponentRepository.save(new TurnComponent(8L, 1L, 8L, "Test turn component action 8"));
+        TurnComponent turnComponent2 = turnComponentRepository.save(new TurnComponent(9L, 3L, 9L, "Test turn component action 9"));
+
+        turnComponentRepository.deleteById(turnComponent2.getId());
+
+        Iterable<TurnComponent> turnComponents = turnComponentRepository.findAll();
+
+        assertThat(turnComponents).hasSize(1).contains(turnComponent);
+    }
 }
