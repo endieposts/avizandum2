@@ -75,4 +75,14 @@ public class TurnComponentRepositoryTest {
 
         assertThat(turnComponents).hasSize(1).contains(turnComponent);
     }
+
+    @Test
+    public void should_delete_all_turn_components() {
+        TurnComponent turnComponent = turnComponentRepository.save(new TurnComponent(10L, 1L, 10L, "Test turn component action 10"));
+        TurnComponent turnComponent2 = turnComponentRepository.save(new TurnComponent(11L, 3L, 11L, "Test turn component action 11"));
+
+        turnComponentRepository.deleteAll();
+
+        assertThat(turnComponentRepository.findAll()).isEmpty();
+    }
 }
