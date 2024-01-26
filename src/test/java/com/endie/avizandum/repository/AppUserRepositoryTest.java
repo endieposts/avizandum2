@@ -68,11 +68,21 @@ public class AppUserRepositoryTest {
         assertThat(checkAppUser.getId()).isEqualTo(AppUser2.getId());
         assertThat(checkAppUser.getUserName()).isEqualTo(updatedAppUser.getUserName());
     }
-    
+
+    @Test
+    public void should_delete_user_by_id() {
+    	AppUser AppUser = appUserRepository.save(new AppUser("User 9", "password", "default"));
+    	AppUser AppUser2 = appUserRepository.save(new AppUser("User 10", "password", "default"));
+
+    	appUserRepository.deleteById(AppUser2.getId());
+
+        assertThat(appUserRepository.findAll()).hasSize(1).contains(AppUser);
+    }
+
     @Test
     public void should_delete_all_users() {
     	AppUser AppUser = appUserRepository.save(new AppUser("User 9", "password", "default"));
-    	AppUser AppUser2 = appUserRepository.save(new AppUser("User 10", "password", "default"));
+    	AppUser AppUser2 = appUserRepository.save(new AppUser("User 11", "password", "default"));
 
     	appUserRepository.deleteAll();
 
