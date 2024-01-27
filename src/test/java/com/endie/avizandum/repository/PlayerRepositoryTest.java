@@ -70,6 +70,16 @@ public class PlayerRepositoryTest {
     }
 
     @Test
+    public void should_delete_player_by_id() {
+        Player player = playerRepository.save(new Player("Test player name 8", 3L, 3L));
+        Player player2 = playerRepository.save(new Player("Test player name 9", 4L, 4L));
+
+        playerRepository.deleteById(player.getId());
+
+        assertThat(playerRepository.findAll()).hasSize(1).contains(player2);
+    }
+
+    @Test
     public void should_delete_all_players() {
         Player player = playerRepository.save(new Player("Test player name 8", 1L, 1L));
         Player player2 = playerRepository.save(new Player("Test player name 9", 1L, 1L));
