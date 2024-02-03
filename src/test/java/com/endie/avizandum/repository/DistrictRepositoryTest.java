@@ -79,13 +79,26 @@ public class DistrictRepositoryTest {
         assertThat(checkDistrict.getName()).isEqualTo(updatedDistrict.getName());
         assertThat(checkDistrict.getTerrainId()).isEqualTo(updatedDistrict.getTerrainId());
     }
-    
+
     @Test
-    public void should_delete_all_districts() {
+    public void should_delete_district_by_id() {
     	District district1 = new District(1L, "Test district name 8");
     	districtRepository.save(district1);
-    	
+
     	District district2 = new District(2L, "Test district name 9");
+    	districtRepository.save(district2);
+
+        districtRepository.deleteById(district2.getId());
+
+        assertThat(districtRepository.findAll()).hasSize(1).contains(district1);
+    }
+
+    @Test
+    public void should_delete_all_districts() {
+    	District district1 = new District(1L, "Test district name 10");
+    	districtRepository.save(district1);
+    	
+    	District district2 = new District(2L, "Test district name 11");
     	districtRepository.save(district2);
 
         districtRepository.deleteAll();
