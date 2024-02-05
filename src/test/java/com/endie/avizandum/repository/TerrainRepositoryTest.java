@@ -23,7 +23,7 @@ public class TerrainRepositoryTest {
     }
     
     @Test
-    public void should_store_a_district() {
+    public void should_store_a_terrain() {
         Terrain terrain = terrainRepository.save(new Terrain("Test terrain name"));
 
         assertThat(terrain).hasFieldOrPropertyWithValue("name", "Test terrain name");
@@ -32,7 +32,7 @@ public class TerrainRepositoryTest {
     }
     
     @Test
-    public void should_find_all_districts() {
+    public void should_find_all_terrains() {
     	Terrain terrain = terrainRepository.save(new Terrain("Test terrain name"));
     	Terrain terrain2 = terrainRepository.save(new Terrain("Test terrain name 2"));
     	Terrain terrain3 = terrainRepository.save(new Terrain("Test terrain name 3")); 
@@ -43,7 +43,7 @@ public class TerrainRepositoryTest {
     }
 
     @Test
-    public void should_find_district_by_id() {
+    public void should_find_terrain_by_id() {
     	Terrain terrain = terrainRepository.save(new Terrain("Test terrain name 4"));
     	Terrain terrain2 = terrainRepository.save(new Terrain("Test terrain name 5"));
 
@@ -53,7 +53,7 @@ public class TerrainRepositoryTest {
     }
     
     @Test
-    public void should_update_district_by_id() {
+    public void should_update_terrain_by_id() {
     	Terrain terrain = terrainRepository.save(new Terrain("Test terrain name 6"));
     	Terrain terrain2 = terrainRepository.save(new Terrain("Test terrain name 7"));
 
@@ -70,7 +70,7 @@ public class TerrainRepositoryTest {
     }
 
     @Test
-    public void should_delete_district_by_id() {
+    public void should_delete_terrain_by_id() {
     	Terrain terrain = terrainRepository.save(new Terrain("Test terrain name 8"));
     	Terrain terrain2 = terrainRepository.save(new Terrain("Test terrain name 9"));
 
@@ -80,7 +80,7 @@ public class TerrainRepositoryTest {
     }
 
     @Test
-    public void should_delete_all_districts() {
+    public void should_delete_all_terrains() {
     	Terrain terrain = terrainRepository.save(new Terrain("Test terrain name 8"));
     	Terrain terrain2 = terrainRepository.save(new Terrain("Test terrain name 9"));
 
