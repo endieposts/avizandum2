@@ -68,11 +68,20 @@ public class DomainRepositoryTest {
         assertThat(checkdomain.getId()).isEqualTo(domain2.getId());
         assertThat(checkdomain.getName()).isEqualTo(updatedDomain.getName());
     }
-    
+
+    @Test
+    public void should_delete_domain_by_id() {
+    	Domain domain = domainRepository.save(new Domain("Test domain name 8", 1L, null));
+    	Domain domain2 = domainRepository.save(new Domain("Test domain name 9", 1L, null));
+
+    	domainRepository.deleteById(domain2.getId());
+
+        assertThat(domainRepository.findById(domain2.getId())).isEmpty();
+    }
     @Test
     public void should_delete_all_domains() {
     	Domain domain = domainRepository.save(new Domain("Test domain name 8", 1L, null));
-    	Domain domain2 = domainRepository.save(new Domain("Test domain name 9", 1L, null));
+    	Domain domain2 = domainRepository.save(new Domain("Test domain name 10", 1L, null));
 
     	domainRepository.deleteAll();
 
