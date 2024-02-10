@@ -31,4 +31,14 @@ public class LoginControllerTest {
 			andExpect(status().
 			isOk());
 	}
+
+	@Test
+	public void testAuthenticationFailure() throws Exception {
+		this.mockMvc.perform(post("/login").
+			content("{\"username\":\"user\",\"password\":\"wrongpassword\"}").
+			header(HttpHeaders.CONTENT_TYPE, "application/json")).
+			andDo(print()).
+			andExpect(status().
+			isForbidden());
+	}
 }
