@@ -35,6 +35,13 @@ spring:
     activate:
       on-profile: dev
 
+aws:
+  sqs:
+    queue: avizandum
+    region: us-west-2
+    access-key: ${awsaccesskey}
+    secret-key: ${awssecretkey}
+    
 ---
 
 spring:
