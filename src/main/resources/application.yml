@@ -41,6 +41,8 @@ aws:
     region: us-west-2
     access-key: ${awsaccesskey}
     secret-key: ${awssecretkey}
+    url: https://sqs.us-west-2.amazonaws.com/000000000000/avizandum
+
     
 ---
 
