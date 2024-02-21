@@ -1,11 +1,9 @@
 package com.endie.avizandum.service;
-package com.amazonaws.auth.AWSCredentials;
-package com.amazonaws.auth.BasicAWSCredentials;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class QueueService {
 
-    AWSCredentials credentials = new BasicAWSCredentials(
-            "<AWS accesskey>",
-            "<AWS secretkey>"
-    );
+
 }
