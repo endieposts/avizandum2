@@ -46,4 +46,12 @@ public class QueueService {
         }
     }
 
+    public void receiveMessage(String queueUrl) {
+        try {
+            sqsClient.receiveMessage(r -> r.queueUrl(queueUrl));
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
 }
