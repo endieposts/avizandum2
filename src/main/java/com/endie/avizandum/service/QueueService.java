@@ -24,7 +24,7 @@ public class QueueService {
     private String getQueueUrl(String s) {
         try {
             ListQueuesIterable listQueues = sqsClient.listQueuesPaginator();
-            
+
             for (software.amazon.awssdk.services.sqs.model.ListQueuesResponse queue : listQueues) {
                 if (queue.queueUrls().contains(s)) {
                     return queue.queueUrls().get(0);
@@ -35,6 +35,15 @@ public class QueueService {
             System.exit(1);
         }
         return "";
+    }
+
+    public void sendMessage(String queueUrl, String message) {
+        try {
+            sqsClient.sendMessage(s -> s.queueUrl(queueUrl).messageBody(message));
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
     }
 
 }
