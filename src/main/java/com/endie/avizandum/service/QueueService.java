@@ -54,4 +54,13 @@ public class QueueService {
             System.exit(1);
         }
     }
+
+    public void deleteMessage(String queueUrl, String receiptHandle) {
+        try {
+            sqsClient.deleteMessage(d -> d.queueUrl(queueUrl).receiptHandle(receiptHandle));
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
 }
