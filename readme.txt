@@ -20,3 +20,5 @@ vault kv put secret/avizandum2 dbpassword=insertpasswordhere
 Change the username and password values to the actual application ones.
 
 For running tests in dev: add $dbusername and dbpassword environment variables to match values in the test user db
+
+Also for tests in dev: add $awsusername and $awskey environment variables
