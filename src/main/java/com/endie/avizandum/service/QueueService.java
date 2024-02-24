@@ -1,17 +1,21 @@
 package com.endie.avizandum.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.*;
 
 @Service
 public class QueueService {
-    private final SqsClient sqsClient;
-    private final String queueUrl;
 
-    public QueueService(String queueUrl) {
+    private final SqsClient sqsClient;
+
+    //todo - remember to add this to properties file!
+    @Value("${aws.sqs.queue-url}")
+    private String queueUrl;
+
+    public QueueService() {
         this.sqsClient = SqsClient.create();
-        this.queueUrl = queueUrl;
     }
 
     public void addPlayerTurn(String playerTurn) {
