@@ -38,10 +38,10 @@ spring:
 aws:
   sqs:
     queue: avizandum
-    region: us-west-2
+    region: eu-west-1
     access-key: ${awsaccesskey}
     secret-key: ${awssecretkey}
-    url: https://sqs.us-west-2.amazonaws.com/000000000000/avizandum
+    queue-url: https://sqs.us-west-2.amazonaws.com/000000000000/avizandum
 
     
 ---
