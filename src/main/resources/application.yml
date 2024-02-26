@@ -41,7 +41,7 @@ aws:
     region: eu-west-1
     access-key: ${awsaccesskey}
     secret-key: ${awssecretkey}
-    queue-url: https://sqs.us-west-2.amazonaws.com/000000000000/avizandum
+    queue-url: https://sqs.eu-west-1.amazonaws.com/000000000000/avizandum
 
     
 ---
