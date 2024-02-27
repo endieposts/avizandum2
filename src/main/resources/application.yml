@@ -17,6 +17,14 @@ spring:
 ---
 
 spring:
+  cloud:
+    aws:
+      region:
+        static: eu-north-1
+  autoconfigure:
+    exclude:
+      org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
+      org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
   datasource:
     url: jdbc:mysql://thor:3306/avizandum2
     username: ${dbusername}
@@ -36,7 +44,7 @@ spring:
       on-profile: dev
 
 aws:
-  region: EU-NORTH-1
+  region: eu-north-1
   sqs:
     queue: avizandum
     access-key: ${awsaccesskey}
@@ -47,14 +55,20 @@ aws:
       on-profile: dev
     
 ---
-
 spring:
+  cloud:
+    aws:
+      region:
+        static: eu-north-1
+  autoconfigure:
+    exclude:
+      org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
+      org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
   datasource:
     url: jdbc:h2:mem:avizandum2
     username: sa
     password: 
     driverClassName: org.h2.Driver
-    
   jpa:
     show-sql: true
     generate-ddl: true
@@ -69,7 +83,7 @@ spring:
       on-profile: test
 
 aws:
-  region: EU-NORTH-1
+  region: eu-north-1
   sqs:
     queue: avizandum
     access-key: ${awsaccesskey}
