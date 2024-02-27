@@ -36,13 +36,15 @@ spring:
       on-profile: dev
 
 aws:
+  region: EU-NORTH-1
   sqs:
     queue: avizandum
-    region: eu-west-1
     access-key: ${awsaccesskey}
     secret-key: ${awssecretkey}
-    queue-url: https://sqs.eu-west-1.amazonaws.com/000000000000/avizandum
-
+    queue-url: ${awsqueueurl}
+  config:
+    activate:
+      on-profile: dev
     
 ---
 
@@ -65,4 +67,14 @@ spring:
   config:
     activate:
       on-profile: test
-  
+
+aws:
+  region: EU-NORTH-1
+  sqs:
+    queue: avizandum
+    access-key: ${awsaccesskey}
+    secret-key: ${awssecretkey}
+    queue-url: ${awsqueueurl}
+  config:
+    activate:
+      on-profile: test
