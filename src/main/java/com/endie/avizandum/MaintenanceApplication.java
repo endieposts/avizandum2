@@ -1,5 +1,6 @@
 package com.endie.avizandum;
 
+import com.endie.avizandum.service.SqsMessageSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -17,6 +18,10 @@ public class MaintenanceApplication {
 		SpringApplication.run(MaintenanceApplication.class, args);
 		
 		logger.info("Application Started");
+
+		SqsMessageSender sender = new SqsMessageSender();
+		sender.sendMessage("Hello World");
+		
 	}
 
 
