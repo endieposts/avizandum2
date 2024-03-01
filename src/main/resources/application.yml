@@ -51,8 +51,6 @@ aws:
   region: eu-north-1
   sqs:
     queue: avizandum
-    access-key: ${awsaccesskey}
-    secret-key: ${awssecretkey}
     queue-url: ${awsqueueurl}
   config:
     activate:
@@ -88,8 +86,6 @@ aws:
   region: eu-north-1
   sqs:
     queue: avizandum
-    access-key: ${awsaccesskey}
-    secret-key: ${awssecretkey}
     queue-url: ${awsqueueurl}
   config:
     activate:
