@@ -23,10 +23,6 @@ spring:
 ---
 
 spring:
-  cloud:
-    aws:
-      region:
-        static: eu-north-1
   datasource:
     url: jdbc:mysql://thor:3306/avizandum2
     username: ${dbusername}
@@ -58,10 +54,6 @@ aws:
     
 ---
 spring:
-  cloud:
-    aws:
-      region:
-        static: eu-north-1
   datasource:
     url: jdbc:h2:mem:avizandum2
     username: sa
