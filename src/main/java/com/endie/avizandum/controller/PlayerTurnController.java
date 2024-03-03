@@ -6,7 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import com.endie.avizandum.domain.PlayerTurn;
 
 @RestController
 public class PlayerTurnController {
@@ -17,19 +19,19 @@ public class PlayerTurnController {
     @Autowired
     private SqsMessageSender sqsMessageSender;
 
-    @RequestMapping("/playerTurn")
+    @RequestMapping(value="/playerTurn")
     public Iterable<com.endie.avizandum.domain.PlayerTurn> getPlayerTurns() {
         return repository.findAll();
     }
 
-    @RequestMapping("/playerTurn/{id}")
+    @RequestMapping(value="/playerTurn/{id}")
     public com.endie.avizandum.domain.PlayerTurn getPlayerTurnById(long id) {
         return repository.findById(id).get();
     }
 
     //Receive a post request to add a player turn
-    @RequestMapping("/playerTurn")
-    public void addPlayerTurn(com.endie.avizandum.domain.PlayerTurn playerTurn) {
+    @RequestMapping(value="/playerTurn", method= RequestMethod.POST)
+    public void addPlayerTurn( PlayerTurn playerTurn) {
         String message = "Player turn failed to serialise";
 
         repository.save(playerTurn);
@@ -44,6 +46,5 @@ public class PlayerTurnController {
         }
 
         sqsMessageSender.sendMessage(message);
-
     }
 }
