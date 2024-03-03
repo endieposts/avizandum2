@@ -30,7 +30,7 @@ public class PlayerTurnController {
     //Receive a post request to add a player turn
     @RequestMapping("/playerTurn")
     public void addPlayerTurn(com.endie.avizandum.domain.PlayerTurn playerTurn) {
-        String message = playerTurn.toString();
+        String message = "Player turn failed to serialise";
 
         repository.save(playerTurn);
 
@@ -42,7 +42,7 @@ public class PlayerTurnController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         sqsMessageSender.sendMessage(message);
 
     }
